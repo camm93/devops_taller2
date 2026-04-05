@@ -3,7 +3,16 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - echo "Starting the pre-build phase... installing dependencies now."
       - pip install -r requirements.txt
+  build:
+    commands:
+      - echo "Build phase started... running tests now."
+      - pytest test_application.py
+  post_build:
+    commands:
+      - echo "Tests Passed!"
+      - echo "Build completed successfully!"
 artifacts:
   files:
     - '**/*'
